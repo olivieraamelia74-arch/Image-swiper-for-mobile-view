@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stark Productivity Suite — v15..00.00.08</title>
+    <title>Mobile Image Swiper — v0.0.0.0.8</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -11,14 +11,14 @@
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --blue:        #3b82f6;
-            --blue-bright: #60a5fa;
-            --blue-dim:    rgba(59,130,246,0.15);
-            --blue-glow:   rgba(59,130,246,0.25);
+            --orange:      #FF9900;
+            --orange-dark: #FF6B00;
+            --orange-dim:  rgba(255,153,0,0.15);
+            --orange-glow: rgba(255,153,0,0.25);
             --bg:          #080d14;
             --bg2:         #0c1220;
             --bg3:         #101828;
-            --border:      rgba(59,130,246,0.14);
+            --border:      rgba(255,153,0,0.14);
             --border-soft: rgba(255,255,255,0.06);
             --text:        #f0f4ff;
             --text-2:      #94a3b8;
@@ -36,27 +36,24 @@
             overflow-x: hidden;
         }
 
-        /* ── SUBTLE RADIAL GLOW BEHIND HERO ── */
         body::before {
             content: '';
             position: fixed;
             top: -200px; left: 50%;
             transform: translateX(-50%);
             width: 900px; height: 600px;
-            background: radial-gradient(ellipse, rgba(59,130,246,0.07) 0%, transparent 70%);
+            background: radial-gradient(ellipse, rgba(255,153,0,0.07) 0%, transparent 70%);
             pointer-events: none; z-index: 0;
         }
 
-        /* ── SCROLL PROGRESS ── */
         #prog {
             position: fixed; top: 0; left: 0;
             height: 2px; width: 0%;
-            background: linear-gradient(90deg, var(--blue), var(--blue-bright));
-            box-shadow: 0 0 10px var(--blue-glow);
+            background: linear-gradient(90deg, var(--orange), var(--orange-dark));
+            box-shadow: 0 0 10px var(--orange-glow);
             z-index: 9999; transition: width 0.1s linear;
         }
 
-        /* ── NAV ── */
         nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 200;
             height: 60px;
@@ -73,7 +70,7 @@
         }
 
         .nav-logo span {
-            color: var(--blue-bright);
+            color: var(--orange);
         }
 
         .nav-links {
@@ -90,7 +87,7 @@
         .nav-links a:hover { color: var(--text); }
 
         .nav-install {
-            background: var(--blue) !important;
+            background: var(--orange) !important;
             color: var(--white) !important;
             padding: 7px 18px !important;
             border-radius: 6px !important;
@@ -100,12 +97,11 @@
         }
 
         .nav-install:hover {
-            background: var(--blue-bright) !important;
-            box-shadow: 0 0 20px var(--blue-glow) !important;
+            background: var(--orange-dark) !important;
+            box-shadow: 0 0 20px var(--orange-glow) !important;
             color: var(--bg) !important;
         }
 
-        /* ── HERO ── */
         .hero {
             min-height: 100vh;
             display: flex; flex-direction: column;
@@ -119,8 +115,8 @@
             display: inline-flex; align-items: center; gap: 8px;
             font-size: 0.72rem; font-weight: 600;
             letter-spacing: 0.12em; text-transform: uppercase;
-            color: var(--blue-bright);
-            background: var(--blue-dim);
+            color: var(--orange);
+            background: var(--orange-dim);
             border: 1px solid var(--border);
             padding: 6px 16px; border-radius: 6px;
             margin-bottom: 32px;
@@ -129,7 +125,7 @@
 
         .hero-eyebrow .dot {
             width: 6px; height: 6px; border-radius: 50%;
-            background: var(--blue-bright);
+            background: var(--orange);
             animation: pulse 1.6s ease-in-out infinite;
         }
 
@@ -146,7 +142,7 @@
         }
 
         .hero h1 .accent {
-            color: var(--blue-bright);
+            color: var(--orange);
         }
 
         .hero-sub {
@@ -168,9 +164,9 @@
 
         .hero-stat .num {
             font-size: 1.8rem; font-weight: 800;
-            color: var(--blue-bright); line-height: 1;
+            color: var(--orange); line-height: 1;
             margin-bottom: 4px;
-            text-shadow: 0 0 20px rgba(96,165,250,0.4);
+            text-shadow: 0 0 20px rgba(255,153,0,0.4);
         }
 
         .hero-stat .lbl {
@@ -193,7 +189,7 @@
 
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px;
-            background: var(--blue);
+            background: var(--orange);
             color: var(--white); font-size: 0.92rem; font-weight: 600;
             padding: 13px 30px; border-radius: 8px; text-decoration: none;
             transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
@@ -201,9 +197,9 @@
         }
 
         .btn-primary:hover {
-            background: var(--blue-bright);
+            background: var(--orange-dark);
             color: var(--bg);
-            box-shadow: 0 0 30px var(--blue-glow);
+            box-shadow: 0 0 30px var(--orange-glow);
             transform: translateY(-2px);
         }
 
@@ -233,14 +229,12 @@
             to   { opacity: 1; transform: translateY(0); }
         }
 
-        /* ── DIVIDER ── */
         .divider {
             width: 100%; height: 1px;
             background: var(--border-soft);
             position: relative; z-index: 1;
         }
 
-        /* ── SECTION WRAPPER ── */
         .wrap {
             max-width: 1100px; margin: 0 auto;
             padding: 96px 48px;
@@ -254,7 +248,7 @@
         .sec-eyebrow {
             font-size: 0.68rem; font-weight: 600;
             letter-spacing: 0.14em; text-transform: uppercase;
-            color: var(--blue-bright);
+            color: var(--orange);
             margin-bottom: 12px;
             display: flex; align-items: center; gap: 10px;
         }
@@ -262,7 +256,7 @@
         .sec-eyebrow::before {
             content: '';
             width: 20px; height: 1px;
-            background: var(--blue-bright);
+            background: var(--orange);
             display: inline-block;
         }
 
@@ -277,7 +271,6 @@
             max-width: 480px; line-height: 1.8;
         }
 
-        /* ── FEATURES GRID ── */
         .feat-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -299,7 +292,7 @@
         .feat-card::before {
             content: '';
             position: absolute; top: 0; left: 0; right: 0; height: 1px;
-            background: linear-gradient(90deg, var(--blue), transparent);
+            background: linear-gradient(90deg, var(--orange), transparent);
             opacity: 0; transition: opacity 0.3s;
         }
 
@@ -320,15 +313,14 @@
             transition: color 0.2s;
         }
 
-        .feat-card li:hover { color: var(--blue-bright); }
+        .feat-card li:hover { color: var(--orange); }
 
         .feat-card li::before {
             content: '›';
             position: absolute; left: 0;
-            color: var(--blue); font-weight: 700;
+            color: var(--orange); font-weight: 700;
         }
 
-        /* ── INSTALL STEPS ── */
         .steps-list {
             display: flex; flex-direction: column; gap: 0;
             border: 1px solid var(--border-soft);
@@ -354,8 +346,8 @@
 
         .step-num-val {
             font-size: 1.4rem; font-weight: 800;
-            color: var(--blue); line-height: 1;
-            text-shadow: 0 0 16px rgba(59,130,246,0.4);
+            color: var(--orange); line-height: 1;
+            text-shadow: 0 0 16px rgba(255,153,0,0.4);
         }
 
         .step-body {
@@ -372,49 +364,28 @@
         }
 
         .step-body a {
-            color: var(--blue-bright); text-decoration: none;
+            color: var(--orange); text-decoration: none;
             transition: color 0.2s;
         }
 
         .step-body a:hover { color: var(--text); }
 
-        /* ── CHANGELOG ── */
-        .cl-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            border: 1px solid var(--border-soft);
-            border-radius: 12px; overflow: hidden;
-            background: var(--border-soft);
+        .compatibility {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .cl-cell {
-            display: flex; gap: 14px; align-items: flex-start;
-            padding: 20px 24px;
-            background: var(--bg2);
-            border-right: 1px solid var(--border-soft);
-            border-bottom: 1px solid var(--border-soft);
-            transition: background 0.2s, border-left 0.2s;
-            border-left: 2px solid transparent;
+        .compatibility-badge {
+            background: var(--orange);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
         }
 
-        .cl-cell:hover {
-            background: var(--bg3);
-            border-left-color: var(--blue);
-        }
-
-        .cl-cell:nth-child(2n) { border-right: none; }
-        .cl-cell:nth-last-child(-n+2) { border-bottom: none; }
-
-        .cl-icon { font-size: 0.95rem; flex-shrink: 0; margin-top: 2px; }
-
-        .cl-text {
-            font-size: 0.83rem; color: var(--text-2); line-height: 1.6;
-        }
-
-        .cl-text strong { color: var(--text); font-weight: 600; }
-
-        /* ── SPECS ── */
         .specs-strip {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
@@ -436,14 +407,13 @@
         .spec-lbl {
             font-size: 0.62rem; font-weight: 600;
             letter-spacing: 0.12em; text-transform: uppercase;
-            color: var(--blue-bright); margin-bottom: 8px; opacity: 0.8;
+            color: var(--orange); margin-bottom: 8px; opacity: 0.8;
         }
 
         .spec-val {
             font-size: 0.85rem; font-weight: 700; color: var(--text);
         }
 
-        /* ── PEOPLE ── */
         .people-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
@@ -454,7 +424,7 @@
             background: var(--bg2);
             border: 1px solid var(--border-soft);
             border-radius: 12px; padding: 28px 18px;
-            text-align: center; text-decoration: none;
+            text-align: center;
             display: block;
             position: relative; overflow: hidden;
             transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
@@ -463,91 +433,34 @@
         .person-card::after {
             content: '';
             position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, var(--blue), var(--blue-bright));
+            background: linear-gradient(90deg, var(--orange), var(--orange-dark));
             transform: scaleX(0); transform-origin: left;
             transition: transform 0.3s ease;
         }
 
         .person-card:hover {
             border-color: var(--border);
-            box-shadow: 0 8px 32px rgba(59,130,246,0.1);
+            box-shadow: 0 8px 32px rgba(255,153,0,0.1);
             transform: translateY(-4px);
         }
 
         .person-card:hover::after { transform: scaleX(1); }
 
-        .person-card.lead {
-            border-color: rgba(99,102,241,0.2);
-        }
-
-        .person-card.lead::after {
-            background: linear-gradient(90deg, #6366f1, #a78bfa);
-        }
-
-        .person-card.lead:hover {
-            border-color: rgba(99,102,241,0.4);
-            box-shadow: 0 8px 32px rgba(99,102,241,0.12);
-        }
-
-        .person-avatar {
-            width: 72px; height: 72px; border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid rgba(59,130,246,0.25);
-            margin: 0 auto 14px; display: block;
-            transition: border-color 0.25s, box-shadow 0.25s;
-        }
-
-        .person-card:hover .person-avatar {
-            border-color: rgba(59,130,246,0.5);
-            box-shadow: 0 0 16px rgba(59,130,246,0.2);
-        }
-
-        .person-card.lead .person-avatar {
-            border-color: rgba(99,102,241,0.3);
-        }
-
-        .person-card.lead:hover .person-avatar {
-            border-color: rgba(99,102,241,0.55);
-            box-shadow: 0 0 16px rgba(99,102,241,0.2);
-        }
-
-        .person-fallback {
-            display: none;
-            width: 72px; height: 72px; border-radius: 50%;
-            background: linear-gradient(135deg, var(--blue), #6366f1);
-            align-items: center; justify-content: center;
-            font-size: 1.5rem; font-weight: 800; color: var(--white);
-            margin: 0 auto 14px;
-            border: 2px solid rgba(59,130,246,0.3);
-        }
-
-        .person-card.lead .person-fallback {
-            background: linear-gradient(135deg, #6366f1, #a78bfa);
-            border-color: rgba(99,102,241,0.35);
-        }
-
         .person-name {
-            font-size: 0.85rem; font-weight: 700;
+            font-size: 0.95rem; font-weight: 700;
             color: var(--text); margin-bottom: 8px; line-height: 1.3;
         }
 
         .person-role {
-            font-size: 0.62rem; font-weight: 600;
+            font-size: 0.68rem; font-weight: 600;
             letter-spacing: 0.08em; text-transform: uppercase;
-            color: var(--blue-bright);
+            color: var(--orange);
             padding: 4px 10px;
-            background: var(--blue-dim);
+            background: var(--orange-dim);
             border: 1px solid var(--border);
             border-radius: 4px; display: inline-block;
         }
 
-        .person-card.lead .person-role {
-            color: #a78bfa;
-            background: rgba(99,102,241,0.1);
-            border-color: rgba(99,102,241,0.2);
-        }
-
-        /* ── FAQ ── */
         .faq-list {
             display: flex; flex-direction: column; gap: 0;
             border: 1px solid var(--border-soft);
@@ -572,10 +485,10 @@
             transition: color 0.2s;
         }
 
-        .faq-q:hover { color: var(--blue-bright); }
+        .faq-q:hover { color: var(--orange); }
 
         .faq-arrow {
-            font-size: 0.72rem; color: var(--blue);
+            font-size: 0.72rem; color: var(--orange);
             transition: transform 0.3s; flex-shrink: 0; margin-left: 16px;
         }
 
@@ -590,7 +503,6 @@
 
         .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
 
-        /* ── FOOTER ── */
         footer {
             background: var(--bg2);
             border-top: 1px solid var(--border-soft);
@@ -609,7 +521,7 @@
             color: var(--text); margin-bottom: 8px;
         }
 
-        .footer-brand .fb-logo span { color: var(--blue-bright); }
+        .footer-brand .fb-logo span { color: var(--orange); }
 
         .footer-brand .fb-sub {
             font-size: 0.78rem; color: var(--text-3); line-height: 1.7;
@@ -618,7 +530,7 @@
         .footer-col h5 {
             font-size: 0.65rem; font-weight: 600;
             letter-spacing: 0.12em; text-transform: uppercase;
-            color: var(--blue-bright); margin-bottom: 16px;
+            color: var(--orange); margin-bottom: 16px;
         }
 
         .footer-col ul { list-style: none; }
@@ -644,16 +556,11 @@
             font-size: 0.72rem; color: var(--text-3);
         }
 
-        /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
             nav { padding: 0 20px; }
             .nav-links { display: none; }
             .wrap { padding: 72px 20px; }
             .feat-grid { grid-template-columns: 1fr; }
-            .cl-grid { grid-template-columns: 1fr; }
-            .cl-cell { border-right: none; }
-            .cl-cell:nth-last-child(-n+2) { border-bottom: 1px solid var(--border-soft); }
-            .cl-cell:last-child { border-bottom: none; }
             .specs-strip { grid-template-columns: repeat(3, 1fr); }
             .spec-cell:nth-child(3n) { border-right: none; }
             .spec-cell:nth-child(n+4) { border-top: 1px solid var(--border-soft); }
@@ -663,133 +570,117 @@
     </style>
 </head>
 
-
 <body>
     <div id="prog"></div>
 
-    <!-- NAV -->
     <nav>
-        <div class="nav-logo">Stark <span>Suite</span></div>
+        <div class="nav-logo">Mobile <span>Swiper</span></div>
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
             <li><a href="#install">Install</a></li>
-            <li><a href="#changelog">Changelog</a></li>
             <li><a href="#team">Team</a></li>
             <li><a href="#faq">FAQ</a></li>
-            <li><a href="" class="nav-install">Install Script</a></li>
+            <li><a href="https://gist.github.com/olivieraamelia74-arch/467a2ecc39eb71ef6c81b2aa6b3c2151/raw/496befba113f238fc5381182e76c4776c267d71e/Swipe_Button.user.js" class="nav-install">Install Script</a></li>
         </ul>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
-        <div class="hero-eyebrow"><span class="dot"></span> Version 15.00.08 — Now Available</div>
-        <h1>Stark <span class="accent">Productivity</span><br>Suite </h1>
-        <p class="hero-sub">The all-in-one productivity and time tracking solution for Amazon's Harmony Console — now with seamless P360 integration, real-time downtime sync, and configurable notifications.</p>
+        <div class="hero-eyebrow"><span class="dot"></span> Version 0.0.0.0.8 — Now Available</div>
+        <h1>Mobile <span class="accent">Image</span><br>Swiper</h1>
+        <p class="hero-sub">Navigate Amazon product images effortlessly on mobile with intuitive swipe buttons. No more awkward finger swipes – just tap and browse.</p>
 
         <div class="hero-stats">
             <div class="hero-stat">
-                <div class="num">6+</div>
-                <div class="lbl">Integrated Tools</div>
+                <div class="num">30+</div>
+                <div class="lbl">Amazon Sites</div>
             </div>
             <div class="hero-divider"></div>
             <div class="hero-stat">
-                <div class="num">1s</div>
-                <div class="lbl">P360 Sync Interval</div>
+                <div class="num">768px</div>
+                <div class="lbl">Mobile Threshold</div>
             </div>
             <div class="hero-divider"></div>
             <div class="hero-stat">
-                <div class="num">31</div>
-                <div class="lbl">IVE Guard Rows</div>
-            </div>
-            <div class="hero-divider"></div>
-            <div class="hero-stat">
-                <div class="num">5m</div>
-                <div class="lbl">Default Notification</div>
+                <div class="num">12</div>
+                <div class="lbl">Animation Steps</div>
             </div>
         </div>
 
         <div class="hero-actions">
-            <a href="https://gist.github.com/olivieraamelia74-arch/ccf664d293746ee150e63235dbb175c8/raw/be4a4833309e2c2637d9a6098ce04a159a61f45c/Stark_productivity_Suite_V15.00.00.08.user.js" class="btn-primary">⬇ Install Script</a>
+            <a href="https://gist.github.com/olivieraamelia74-arch/467a2ecc39eb71ef6c81b2aa6b3c2151/raw/496befba113f238fc5381182e76c4776c267d71e/Swipe_Button.user.js" class="btn-primary">⬇ Install Script</a>
             <a href="#features" class="btn-secondary">Explore Features →</a>
         </div>
-        <p class="hero-note">Requires Tampermonkey · Runs on console.harmony.a2z.com</p>
+        <p class="hero-note">Requires Tampermonkey · Works on all Amazon domains</p>
     </section>
 
     <div class="divider"></div>
 
-    <!-- FEATURES -->
     <section class="wrap" id="features">
         <div class="sec-header">
             <div class="sec-eyebrow">What's Inside</div>
-            <div class="sec-title">Six tools. One script.</div>
-            <p class="sec-sub">Everything you need to track, validate, and optimize your productivity on Harmony Console.</p>
+            <div class="sec-title">Smart mobile navigation</div>
+            <p class="sec-sub">Everything you need for seamless Amazon mobile browsing.</p>
         </div>
 
         <div class="feat-grid">
             <div class="feat-card">
-                <span class="feat-icon">⏱️</span>
-                <h3>Duranaut Timer</h3>
+                <span class="feat-icon">📱</span>
+                <h3>Mobile-Only Activation</h3>
                 <ul>
-                    <li>Session time tracking</li>
-                    <li>Downtime monitoring</li>
-                    <li>Break time management</li>
-                    <li>Leakage calculation</li>
-                    <li>Full-day &amp; half-day shift support</li>
+                    <li>Auto-detects screen width ≤768px</li>
+                    <li>Responsive to viewport changes</li>
+                    <li>Desktop-safe (no interference)</li>
+                    <li>Instant activation on mobile</li>
                 </ul>
             </div>
             <div class="feat-card">
-                <span class="feat-icon">📈</span>
-                <h3>IVE TaskTally</h3>
+                <span class="feat-icon">🎯</span>
+                <h3>Smart Positioning</h3>
                 <ul>
-                    <li>Task counter with AHT tracking</li>
-                    <li>Process-specific AHT targets</li>
-                    <li>Real-time productivity metrics</li>
-                    <li>Individual task timing</li>
-                    <li>Performance indicators</li>
+                    <li>Fixed at top: 500px for easy reach</li>
+                    <li>Thumb-friendly button placement</li>
+                    <li>Maximum z-index (always on top)</li>
+                    <li>Non-intrusive design</li>
                 </ul>
             </div>
             <div class="feat-card">
-                <span class="feat-icon">📅</span>
-                <h3>Taskinator</h3>
+                <span class="feat-icon">🌍</span>
+                <h3>Global Support</h3>
                 <ul>
-                    <li>Calendar-based task history</li>
-                    <li>Daily/weekly/monthly stats</li>
-                    <li>Data export/import</li>
-                    <li>Long-term productivity tracking</li>
-                    <li>Historical data preservation</li>
+                    <li>Works on 30+ Amazon domains</li>
+                    <li>US, UK, India, Japan, Germany</li>
+                    <li>Brazil, Mexico, Australia, Canada</li>
+                    <li>And many more regions</li>
                 </ul>
             </div>
             <div class="feat-card">
-                <span class="feat-icon">☕</span>
-                <h3>Break Tracker</h3>
+                <span class="feat-icon">⚡</span>
+                <h3>Native Touch Feel</h3>
                 <ul>
-                    <li>1-hour break allocation</li>
-                    <li>Visual break indicators</li>
-                    <li>Automatic break time sync</li>
-                    <li>Break usage monitoring</li>
-                    <li>Color-coded status alerts</li>
+                    <li>12-step swipe animation</li>
+                    <li>14ms interval timing</li>
+                    <li>Smooth image transitions</li>
+                    <li>Authentic swipe simulation</li>
                 </ul>
             </div>
             <div class="feat-card">
-                <span class="feat-icon">🛡️</span>
-                <h3>IVE Guard</h3>
+                <span class="feat-icon">🎨</span>
+                <h3>Amazon Styled</h3>
                 <ul>
-                    <li>Form validation system</li>
-                    <li>31 predefined data rows</li>
-                    <li>Manual ON/OFF toggle</li>
-                    <li>Mismatch detection</li>
-                    <li>Quality assurance automation</li>
+                    <li>Signature orange (#FF9900)</li>
+                    <li>48px circular buttons</li>
+                    <li>White border with shadow</li>
+                    <li>Seamless integration</li>
                 </ul>
             </div>
             <div class="feat-card">
-                <span class="feat-icon">🔗</span>
-                <h3>P360 Integration</h3>
+                <span class="feat-icon">🔄</span>
+                <h3>Dynamic Response</h3>
                 <ul>
-                    <li>Real-time downtime tracking</li>
-                    <li>Bottom-left timer widget</li>
-                    <li>Configurable notifications</li>
-                    <li>Break code separation</li>
-                    <li>Seamless data sync</li>
+                    <li>Auto-shows on mobile view</li>
+                    <li>Auto-hides on desktop resize</li>
+                    <li>Persistent across page loads</li>
+                    <li>Lightweight performance</li>
                 </ul>
             </div>
         </div>
@@ -797,12 +688,11 @@
 
     <div class="divider"></div>
 
-    <!-- INSTALL -->
     <section class="wrap narrow" id="install">
         <div class="sec-header">
             <div class="sec-eyebrow">Get Started</div>
-            <div class="sec-title">Install in minutes</div>
-            <p class="sec-sub">Four steps to get up and running on Harmony Console.</p>
+            <div class="sec-title">Install in 2 steps</div>
+            <p class="sec-sub">Quick setup for instant mobile browsing enhancement.</p>
         </div>
 
         <div class="steps-list">
@@ -813,6 +703,7 @@
                     <p>Add Tampermonkey to your browser:
                         <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank">Chrome</a> ·
                         <a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank">Firefox</a> ·
+                        <a href="https://apps.apple.com/us/app/tampermonkey/id1482490089" target="_blank">Safari</a> ·
                         <a href="https://microsoftedge.microsoft.com/addons/detail/tampermonkey/iikmkjmpaadaobahmlepeloendndfphd" target="_blank">Edge</a>
                     </p>
                 </div>
@@ -821,21 +712,7 @@
                 <div class="step-num-col"><div class="step-num-val">02</div></div>
                 <div class="step-body">
                     <h4>Click Install Script</h4>
-                    <p>Click the "Install Script" button in the nav bar or hero section. Tampermonkey will open the installation prompt automatically.</p>
-                </div>
-            </div>
-            <div class="step-row">
-                <div class="step-num-col"><div class="step-num-val">03</div></div>
-                <div class="step-body">
-                    <h4>Confirm Installation</h4>
-                    <p>Review the script details in Tampermonkey and click "Install" to confirm. The script activates immediately on the target page.</p>
-                </div>
-            </div>
-            <div class="step-row">
-                <div class="step-num-col"><div class="step-num-val">04</div></div>
-                <div class="step-body">
-                    <h4>Open Harmony Console</h4>
-                    <p>Navigate to <a href="https://console.harmony.a2z.com" target="_blank">console.harmony.a2z.com</a> and look for the 📊 button in the bottom-right corner to access all tools.</p>
+                    <p>Click the "Install Script" button above. Tampermonkey will open the installation prompt. Review and confirm to activate the script on all Amazon sites.</p>
                 </div>
             </div>
         </div>
@@ -843,51 +720,65 @@
 
     <div class="divider"></div>
 
-    <!-- CHANGELOG -->
-    <section class="wrap" id="changelog">
+    <section class="wrap" id="compatibility">
         <div class="sec-header">
-            <div class="sec-eyebrow">What's New</div>
-            <div class="sec-title">v15.00.06 Release Notes</div>
-            <p class="sec-sub">P360 integration and major quality-of-life improvements.</p>
+            <div class="sec-eyebrow">Global Coverage</div>
+            <div class="sec-title">Supported Amazon Sites</div>
+            <p class="sec-sub">Works seamlessly across all major Amazon regional domains.</p>
         </div>
 
-        <div class="cl-grid">
-            <div class="cl-cell"><span class="cl-icon">🚀</span><p class="cl-text"><strong>Real-time P360 sync</strong> — 1-second interval keeps downtime data always current.</p></div>
-            <div class="cl-cell"><span class="cl-icon">🖥️</span><p class="cl-text"><strong>Bottom-left timer widget</strong> — Shows active downtime code and elapsed time only when active.</p></div>
-            <div class="cl-cell"><span class="cl-icon">🔔</span><p class="cl-text"><strong>Configurable notifications</strong> — Set interval from 1–60 minutes (default 5 min) or disable entirely.</p></div>
-            <div class="cl-cell"><span class="cl-icon">⚙️</span><p class="cl-text"><strong>Notification settings in Duranaut</strong> — Toggle and interval control built into the Duranaut modal.</p></div>
-            <div class="cl-cell"><span class="cl-icon">☕</span><p class="cl-text"><strong>Break code separation</strong> — Break1, Break2, and Lunch are automatically routed to Break Tracker.</p></div>
-            <div class="cl-cell"><span class="cl-icon">💾</span><p class="cl-text"><strong>Taskinator preservation</strong> — Reset All Data now keeps your Taskinator history intact.</p></div>
-            <div class="cl-cell"><span class="cl-icon">🐛</span><p class="cl-text"><strong>Bug fix</strong> — Resolved <code>updateDuranautDisplay()</code> reference error that blocked P360 tracking.</p></div>
-            <div class="cl-cell"><span class="cl-icon">🎨</span><p class="cl-text"><strong>Enhanced CSS</strong> — Improved styling for P360 timer widget with smooth transitions.</p></div>
-            <div class="cl-cell"><span class="cl-icon">📋</span><p class="cl-text"><strong>Better logging</strong> — Detailed console messages for easier debugging and monitoring.</p></div>
-            <div class="cl-cell"><span class="cl-icon">🔄</span><p class="cl-text"><strong>No-reload reset</strong> — Reset All Data no longer reloads the page, keeping P360 widget active.</p></div>
+        <div class="compatibility">
+            <span class="compatibility-badge">🇺🇸 Amazon.com</span>
+            <span class="compatibility-badge">🇮🇳 Amazon.in</span>
+            <span class="compatibility-badge">🇬🇧 Amazon.co.uk</span>
+            <span class="compatibility-badge">🇩🇪 Amazon.de</span>
+                        <span class="compatibility-badge">🇫🇷 Amazon.fr</span>
+            <span class="compatibility-badge">🇯🇵 Amazon.co.jp</span>
+            <span class="compatibility-badge">🇨🇦 Amazon.ca</span>
+            <span class="compatibility-badge">🇦🇺 Amazon.com.au</span>
+            <span class="compatibility-badge">🇧🇷 Amazon.com.br</span>
+            <span class="compatibility-badge">🇲🇽 Amazon.com.mx</span>
+            <span class="compatibility-badge">🇹🇷 Amazon.com.tr</span>
+            <span class="compatibility-badge">🇹🇭 Amazon.co.th</span>
+            <span class="compatibility-badge">🇮🇩 Amazon.co.id</span>
+            <span class="compatibility-badge">🇿🇦 Amazon.co.za</span>
+            <span class="compatibility-badge">🇮🇹 Amazon.it</span>
+            <span class="compatibility-badge">🇪🇸 Amazon.es</span>
+            <span class="compatibility-badge">🇳🇱 Amazon.nl</span>
+            <span class="compatibility-badge">🇵🇱 Amazon.pl</span>
+            <span class="compatibility-badge">🇸🇪 Amazon.se</span>
+            <span class="compatibility-badge">🇸🇦 Amazon.sa</span>
+            <span class="compatibility-badge">🇦🇪 Amazon.ae</span>
+            <span class="compatibility-badge">🇪🇬 Amazon.eg</span>
+            <span class="compatibility-badge">🇨🇳 Amazon.cn</span>
+            <span class="compatibility-badge">🇷🇺 Amazon.ru</span>
+            <span class="compatibility-badge">🇸🇬 Amazon.sg</span>
+            <span class="compatibility-badge">🇮🇪 Amazon.ie</span>
+            <span class="compatibility-badge">And more!</span>
         </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- TECH SPECS -->
     <section class="wrap" id="specs">
         <div class="sec-header">
             <div class="sec-eyebrow">Under the Hood</div>
             <div class="sec-title">Technical Specs</div>
-            <p class="sec-sub">Built for reliability and performance on Harmony Console.</p>
+            <p class="sec-sub">Built for reliability and performance on mobile Amazon.</p>
         </div>
 
         <div class="specs-strip">
-            <div class="spec-cell"><div class="spec-lbl">Version</div><div class="spec-val">15.00.06</div></div>
+            <div class="spec-cell"><div class="spec-lbl">Version</div><div class="spec-val">0.0.0.0.8</div></div>
             <div class="spec-cell"><div class="spec-lbl">Platform</div><div class="spec-val">Tampermonkey</div></div>
-            <div class="spec-cell"><div class="spec-lbl">Target URL</div><div class="spec-val">harmony.a2z.com</div></div>
-            <div class="spec-cell"><div class="spec-lbl">Storage</div><div class="spec-val">localStorage + GM</div></div>
-            <div class="spec-cell"><div class="spec-lbl">P360 Sync</div><div class="spec-val">Every 1 second</div></div>
-            <div class="spec-cell"><div class="spec-lbl">Browsers</div><div class="spec-val">Chrome · FF · Edge</div></div>
+            <div class="spec-cell"><div class="spec-lbl">Target</div><div class="spec-val">Amazon Mobile</div></div>
+            <div class="spec-cell"><div class="spec-lbl">Threshold</div><div class="spec-val">≤768px</div></div>
+            <div class="spec-cell"><div class="spec-lbl">Animation</div><div class="spec-val">12 steps</div></div>
+            <div class="spec-cell"><div class="spec-lbl">Browsers</div><div class="spec-val">All Major</div></div>
         </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- TEAM -->
     <section class="wrap" id="team">
         <div class="sec-header">
             <div class="sec-eyebrow">The Team</div>
@@ -896,110 +787,30 @@
         </div>
 
         <div class="people-grid">
-
-                        <!-- Shouvik Banerjee -->
-            <a href="https://atoz.amazon.work/phonetool/users/bshouvik" target="_blank" rel="noopener noreferrer" class="person-card">
-                <img src="https://github.com/olivieraamelia74-arch/Link_Extractor/blob/olivieraamelia74-arch-patch-1/shouvik.jpg?raw=true" alt="Shouvik Banerjee" class="person-avatar"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-                <div class="person-fallback">S</div>
+            <div class="person-card">
                 <div class="person-name">Shouvik Banerjee</div>
-                <div class="person-role">Content Reviewer</div>
-            </a>
+                <div class="person-role">Lead Developer</div>
+            </div>
 
-            
-            <!-- Tusar Mukhopadhyay -->
-            <a href="https://atoz.amazon.work/phonetool/users/tusarmuk" target="_blank" rel="noopener noreferrer" class="person-card">
-                <img src="https://github.com/olivieraamelia74-arch/Link_Extractor/blob/olivieraamelia74-arch-patch-1/204637985.jpg?raw=true" alt="Tusar Mukhopadhyay" class="person-avatar"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-                <div class="person-fallback">T</div>
-                <div class="person-name">Tusar Mukhopadhyay</div>
-                <div class="person-role">Content Reviewer</div>
-            </a>
-
-                        <!-- Suman Mandal -->
-            <a href="https://atoz.amazon.work/phonetool/users/sumazman" target="_blank" rel="noopener noreferrer" class="person-card">
-                <img src="https://github.com/olivieraamelia74-arch/Link_Extractor/blob/olivieraamelia74-arch-patch-1/suman.jpg?raw=true" alt="Suman Mandal" class="person-avatar"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-                <div class="person-fallback">S</div>
-                <div class="person-name">Suman Mandal</div>
-                <div class="person-role">Content Reviewer</div>
-            </a>
-
-
-            <!-- Prakash Mishra -->
-            <a href="https://atoz.amazon.work/phonetool/users/bpmishra" target="_blank" rel="noopener noreferrer" class="person-card">
-                <img src="https://github.com/olivieraamelia74-arch/Link_Extractor/blob/olivieraamelia74-arch-patch-1/Prakash.jpg?raw=true" alt="Prakash Mishra" class="person-avatar"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-                <div class="person-fallback">P</div>
+            <div class="person-card">
                 <div class="person-name">Prakash Mishra</div>
-                <div class="person-role">Sr Content Reviewer Italian</div>
-            </a>
+                <div class="person-role">Developer</div>
+            </div>
 
+            <div class="person-card">
+                <div class="person-name">Suman Mandal</div>
+                <div class="person-role">Developer</div>
+            </div>
 
-
-            <!-- Sridevi Naga Pravallika Kanakala -->
-            <a href="https://atoz.amazon.work/phonetool/users/sridevna" target="_blank" rel="noopener noreferrer" class="person-card">
-                <img src="https://github.com/olivieraamelia74-arch/Link_Extractor/blob/olivieraamelia74-arch-patch-1/sridevi.jpg?raw=true" alt="Sridevi Naga Pravallika Kanakala" class="person-avatar"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-                <div class="person-fallback">S</div>
-                <div class="person-name">Sridevi Naga Pravallika Kanakala</div>
-                <div class="person-role">Content Reviewer</div>
-            </a>
-
-            <!-- Mayur Bendale -->
-            <a href="https://atoz.amazon.work/phonetool/users/nmayuben" target="_blank" rel="noopener noreferrer" class="person-card">
-                <img src="https://github.com/olivieraamelia74-arch/Link_Extractor/blob/olivieraamelia74-arch-patch-1/mayur.jpg?raw=true" alt="Mayur Bendale" class="person-avatar"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-                <div class="person-fallback">M</div>
-                <div class="person-name">Mayur Bendale</div>
-                <div class="person-role">Content Reviewer</div>
-            </a>
+            <div class="person-card">
+                <div class="person-name">Tusar Mukhopadhyay</div>
+                <div class="person-role">Developer</div>
+            </div>
         </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- LEADERSHIP -->
-    <section class="wrap" id="leadership">
-        <div class="sec-header">
-            <div class="sec-eyebrow" style="color:#a78bfa;">Leadership</div>
-            <div class="sec-title">Guided by</div>
-            <p class="sec-sub">The leaders who make it possible.</p>
-        </div>
-
-        <div class="people-grid">
-            <!-- Sunita Kumari Gaire — FIRST -->
-            <a href="https://atoz.amazon.work/phonetool/users/gaires" target="_blank" rel="noopener noreferrer" class="person-card lead">
-                <img src="https://github.com/olivieraamelia74-arch/Link_Extractor/blob/olivieraamelia74-arch-patch-1/sunita.jpg?raw=true" alt="Sunita Kumari Gaire" class="person-avatar"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-                <div class="person-fallback">S</div>
-                <div class="person-name">Sunita Kumari Gaire</div>
-                <div class="person-role">Ad Policing Manager</div>
-            </a>
-
-            <!-- Nithin Anand -->
-            <a href="https://atoz.amazon.work/phonetool/users/annithin" target="_blank" rel="noopener noreferrer" class="person-card lead">
-                <img src="https://github.com/olivieraamelia74-arch/Link_Extractor/blob/olivieraamelia74-arch-patch-1/nithin.jpg?raw=true" alt="Nithin Anand" class="person-avatar"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-                <div class="person-fallback">N</div>
-                <div class="person-name">Nithin Anand</div>
-                <div class="person-role">Business Operations Manager</div>
-            </a>
-
-            <!-- Manjunath D — LAST -->
-            <a href="https://atoz.amazon.work/phonetool/users/dnmnjun" target="_blank" rel="noopener noreferrer" class="person-card lead">
-                <img src="https://github.com/olivieraamelia74-arch/Link_Extractor/blob/olivieraamelia74-arch-patch-1/mnju.jpg?raw=true" alt="Manjunath D" class="person-avatar"
-                    onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-                <div class="person-fallback">M</div>
-                <div class="person-name">Manjunath D</div>
-                <div class="person-role">Ad Operation SME</div>
-            </a>
-        </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <!-- FAQ -->
     <section class="wrap narrow" id="faq">
         <div class="sec-header">
             <div class="sec-eyebrow">Got Questions?</div>
@@ -1009,43 +820,41 @@
 
         <div class="faq-list">
             <div class="faq-item">
-                <button class="faq-q">Does this work with P360 Timelog Monitor? <span class="faq-arrow">▼</span></button>
-                <div class="faq-a">Yes! Version 15.00.08 includes full P360 integration. The script automatically syncs with P360 downtime tracking and displays a real-time timer widget in the bottom-left corner.</div>
+                <button class="faq-q">Will this work on desktop? <span class="faq-arrow">▼</span></button>
+                <div class="faq-a">No, the script is designed exclusively for mobile devices (screen width ≤768px) to avoid interfering with desktop navigation. It automatically detects your viewport size and only activates on mobile.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-q">Will my Taskinator history be preserved when I reset data? <span class="faq-arrow">▼</span></button>
-                <div class="faq-a">Absolutely. The "Reset All Data" function specifically preserves Taskinator history while clearing all other productivity data. Your long-term records are always safe.</div>
+                <button class="faq-q">Is it safe to use? <span class="faq-arrow">▼</span></button>
+                <div class="faq-a">Yes! The script only adds navigation buttons and doesn't collect any data, modify Amazon's functionality, or access your personal information. It's completely safe and transparent.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-q">How do I configure P360 notifications? <span class="faq-arrow">▼</span></button>
-                <div class="faq-a">Open the Duranaut modal and scroll to the bottom. You'll find P360 Notification Settings where you can enable/disable notifications and set the interval (1–60 minutes, default 5 min).</div>
+                <button class="faq-q">Can I customize the button position? <span class="faq-arrow">▼</span></button>
+                <div class="faq-a">Yes! You can edit the script in Tampermonkey and adjust the CSS values for positioning. Look for the "top: 500px" value in the styles section and change it to your preferred position.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-q">Can I use this on multiple browsers? <span class="faq-arrow">▼</span></button>
-                <div class="faq-a">Yes, as long as Tampermonkey is installed. Data is stored locally per browser — use the export/import feature in Taskinator if you need to switch browsers.</div>
+                <button class="faq-q">What if the buttons don't appear? <span class="faq-arrow">▼</span></button>
+                <div class="faq-a">Make sure you're on a mobile device or have your browser in mobile view (≤768px width), and that you're on an Amazon product page. The script waits for the main product image to load before injecting buttons.</div>
             </div>
             <div class="faq-item">
-                <button class="faq-q">What happens if I encounter errors? <span class="faq-arrow">▼</span></button>
-                <div class="faq-a">Open the browser console (F12) and look for [P360] or [MERGED SCRIPT] log entries. Most issues are resolved by refreshing the page or reinstalling the script.</div>
+                <button class="faq-q">Does this work on all Amazon product pages? <span class="faq-arrow">▼</span></button>
+                <div class="faq-a">Yes, the script works on all Amazon product detail pages across 30+ regional domains. It automatically detects the main product image container and adds navigation buttons.</div>
             </div>
         </div>
     </section>
 
     <div class="divider"></div>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
             <div class="footer-brand">
-                <div class="fb-logo">Stark <span>Suite</span></div>
-                <div class="fb-sub">Version 15.00.08<br>Released February 2026 · For internal use only</div>
+                <div class="fb-logo">Mobile <span>Swiper</span></div>
+                <div class="fb-sub">Version 0.0.0.0.8<br>Released March 2026 · For personal use</div>
             </div>
             <div class="footer-col">
                 <h5>Navigation</h5>
                 <ul>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#install">Install</a></li>
-                    <li><a href="#changelog">Changelog</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
@@ -1053,21 +862,20 @@
             <div class="footer-col">
                 <h5>Resources</h5>
                 <ul>
-                    <li><a href="https://console.harmony.a2z.com" target="_blank">Harmony Console</a></li>
                     <li><a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" target="_blank">Tampermonkey (Chrome)</a></li>
                     <li><a href="https://addons.mozilla.org/en-US/firefox/addon/tampermonkey/" target="_blank">Tampermonkey (Firefox)</a></li>
+                    <li><a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey Docs</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p class="footer-copy">© 2026 Stark Productivity Suite · Created by bshouvik &amp; nmayuben · All rights reserved.</p>
-            <p class="footer-copy">Amazon Harmony Console · Internal Use Only</p>
+            <p class="footer-copy">© 2026 Mobile Image Swiper · Created by Shouvik, Prakash, Suman & Tusar</p>
+            <p class="footer-copy">Independent userscript · Not affiliated with Amazon</p>
         </div>
     </footer>
 
-    
     <script>
-        // ── SCROLL PROGRESS BAR ──
+        // Scroll progress bar
         window.addEventListener('scroll', () => {
             const bar = document.getElementById('prog');
             const scrolled = window.scrollY;
@@ -1075,7 +883,7 @@
             if (total > 0) bar.style.width = (scrolled / total * 100) + '%';
         });
 
-        // ── FAQ ACCORDION ──
+        // FAQ accordion
         document.querySelectorAll('.faq-q').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.closest('.faq-item');
@@ -1085,7 +893,7 @@
             });
         });
 
-        // ── SCROLL-REVEAL (Intersection Observer) ──
+        // Scroll-reveal (Intersection Observer)
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1097,7 +905,7 @@
         }, { threshold: 0.07, rootMargin: '0px 0px -32px 0px' });
 
         document.querySelectorAll(
-            '.feat-card, .step-row, .cl-cell, .spec-cell, .person-card, .faq-item'
+            '.feat-card, .step-row, .spec-cell, .person-card, .faq-item, .compatibility-badge'
         ).forEach((el, i) => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(18px)';
@@ -1105,7 +913,7 @@
             revealObserver.observe(el);
         });
 
-        // ── HERO STATS COUNTER ANIMATION ──
+        // Hero stats counter animation
         function animateCounter(el, target, suffix, duration) {
             const isFloat = target % 1 !== 0;
             let start = 0;
@@ -1125,10 +933,9 @@
                 if (entry.isIntersecting) {
                     const nums = entry.target.querySelectorAll('.hero-stat .num');
                     const data = [
-                        { val: 6, suffix: '+' },
-                        { val: 1, suffix: 's' },
-                        { val: 31, suffix: '' },
-                        { val: 5, suffix: 'm' }
+                        { val: 30, suffix: '+' },
+                        { val: 768, suffix: 'px' },
+                        { val: 12, suffix: '' }
                     ];
                     nums.forEach((el, i) => {
                         if (data[i]) animateCounter(el, data[i].val, data[i].suffix, 800);
@@ -1141,25 +948,13 @@
         const heroStats = document.querySelector('.hero-stats');
         if (heroStats) statsObserver.observe(heroStats);
 
-        // ── SMOOTH HOVER GLOW ON PERSON CARDS ──
+        // Smooth hover glow on person cards
         document.querySelectorAll('.person-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = ((e.clientX - rect.left) / rect.width) * 100;
                 const y = ((e.clientY - rect.top) / rect.height) * 100;
-                card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(59,130,246,0.06), var(--bg2) 60%)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.background = '';
-            });
-        });
-
-        document.querySelectorAll('.person-card.lead').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = ((e.clientX - rect.left) / rect.width) * 100;
-                const y = ((e.clientY - rect.top) / rect.height) * 100;
-                card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(99,102,241,0.07), var(--bg2) 60%)`;
+                card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255,153,0,0.06), var(--bg2) 60%)`;
             });
             card.addEventListener('mouseleave', () => {
                 card.style.background = '';
@@ -1168,9 +963,4 @@
     </script>
 
 </body>
-
 </html>
-
-
-
-
